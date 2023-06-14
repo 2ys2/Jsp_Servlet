@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>infoForm.html</title>
+
+</head>
+<body>
+<h1>Information HTML</h1>
+	<!-- 본인들 정보 파일 이름, 연락처, 주소 입력 받아서 Information.java 서블릿에서 출력 -->
+	<table>
+		<form action="../info" method="post">
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" placeholder="name input"></td>
+			</tr>
+			<tr>
+				<td>연락처</td>
+				<td><input type="text" name="phone"
+					placeholder="cell-phone number input"></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td><input type="text" name="address"
+					placeholder="address input"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit"></td>
+				<td><input type="reset" value="Reset"></td>
+			</tr>
+		</form>
+	</table>
+
+</body>
+</html>
