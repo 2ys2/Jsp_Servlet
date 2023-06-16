@@ -1,0 +1,5 @@
+# manually ignored
+.metadata/
+Servers/
+.git/
+/Servers/
