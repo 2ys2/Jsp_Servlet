@@ -7,9 +7,8 @@
 <title>JSP 게시판 웹사이트</title>
 </head>
 <body>
-	Hello World!
 	<script>
-		location.href = 'login.jsp';
+		location.href = 'main.jsp';
 	</script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>JSP 게시판 웹사이트</title>
-<meta name="viewport" content="width=device-width" , initial-scale="1">
+<meta name="viewport" content="width=device-width", initial-scale="1">
 <!-- 반응형 웹에 사용하는 메타태그 -->
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 참조  -->

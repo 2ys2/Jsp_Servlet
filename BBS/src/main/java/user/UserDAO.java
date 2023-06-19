@@ -75,4 +75,6 @@ public class UserDAO {
  * System.out.println("ORACLE Connection Success !!!");
  * 
  * "C:\Users\KOSA\Downloads\WINDOWS.X64_193000_db_home\jdbc\lib\ojdbc8.jar"
+ * 
+ * https://kkk-kkk.tistory.com/entry/JSP%EB%8F%99%EB%B9%88%EB%82%98-JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EA%B0%95%EC%A2%8C-7%EA%B0%95-%EC%A0%91%EC%86%8D%ED%95%9C-%ED%9A%8C%EC%9B%90-%EC%84%B8%EC%85%98-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0JSP-Advanced-Development-Tutorial-7
  */

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+	<WatchedREsource>WEB-INF/web.xml</WatchedREsource>
+
+	<Resource name="jdbc:giftDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="user01" password="oracle"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:orcl" />
+</Context>
