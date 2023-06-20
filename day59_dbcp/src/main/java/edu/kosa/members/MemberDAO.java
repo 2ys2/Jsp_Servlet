@@ -3,6 +3,7 @@ package edu.kosa.members;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -67,7 +68,7 @@ public class MemberDAO {  // Controller
 		ResultSet rs = pstmt.executeQuery(); // 반환값이 있는 경우
 		
 		if( rs.next() ) {
-			dbpwd = rs.getString("passwd"); // 
+			dbpwd = rs.getString("passwd"); //DB에 있는 필드 passwd 
 			if( dbpwd.equals(pwd) ) result = 1;  // 인증성공
 			else result = 0;  // 비번 틀림
 		}else {
@@ -95,9 +96,110 @@ public class MemberDAO {  // Controller
 		return result;
 	} // confirmID(id) end
 	
+
+//getMember(id) - update시 입력된 id 데이터를 보여줄 때 사용
+public MemberVO getMember(String id) throws Exception {
+	String sql  = "SELECT * FROM MEMBERS WHERE ID = ?";
+	MemberVO vo = null;
+	Connection conn = getConnection();
+	PreparedStatement pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, id);
+	ResultSet rs = pstmt.executeQuery();
+	
+	if ( rs.next() ) {
+		vo = new MemberVO();
+		vo.setId(rs.getString("id")); //DB의 id필드
+		vo.setName(rs.getString("name"));
+		vo.setPasswd(rs.getString("passwd"));
+		vo.setJumin1(rs.getString("jumin1"));
+		vo.setJumin2(rs.getString("jumin2"));
+		vo.setEmail(rs.getString("email"));
+		vo.setBlog(rs.getString("blog"));
+		vo.setReg_date(rs.getTimestamp("reg_date"));
+	} //if end : 세팅작업 값 가져와서 담아두기
+	
+	//작은것 부터 닫는다.
+	CloseHelper.close(rs); 	CloseHelper.close(pstmt); 	CloseHelper.close(conn);
+	return vo;
+} //getMember(id) end
+
+	//update(vo) - 회원 정보 수정 완료
+	public void update( MemberVO vo) throws Exception {
+		String sql = "UPDATE MEMBERS SET PASSWD=?, EMAIL=?, BLOG=? WHERE ID = ?";
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, vo.getPasswd());
+		pstmt.setString(2, vo.getEmail());
+		pstmt.setString(3, vo.getBlog());
+		pstmt.setString(4, vo.getId());
+		
+		int result = pstmt.executeUpdate(); //
+		System.out.println("result : " + result);
+		
+		CloseHelper.close(pstmt); CloseHelper.close(conn);
+		
+	} //update() end
+	
+	//selectAll() - 회원 리스트 보기
+	public ArrayList<MemberVO> selectAll() throws Exception {
+		StringBuffer sb = new StringBuffer();
+		sb.append( "SELECT ID, NAME, JUMIN1, EMAIL, BLOG, ");
+		sb.append(" REG_DATE FROM MEMBERS ORDER BY REG_DATE DESC" );
+		
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sb.toString());
+		ResultSet rs = pstmt.executeQuery();
+		
+		MemberVO vo = null;
+		ArrayList<MemberVO> list = new ArrayList<>();
+		
+		while( rs.next() ) {
+			vo = new MemberVO();
+			vo.setId(rs.getString("id"));
+			vo.setName(rs.getString("name"));
+			vo.setJumin1(rs.getString("jumin1"));
+			vo.setEmail(rs.getString("email"));
+			vo.setBlog(rs.getString("blog"));
+			vo.setReg_date(rs.getTimestamp("reg_date"));
+			
+			list.add(vo);
+		} //while end
+		CloseHelper.close(rs); 		CloseHelper.close(pstmt); 		CloseHelper.close(conn);
+		
+		return list;
+	} //selectAll() end
+	
+	public void delete(String id) throws Exception{
+		String sql = "DELETE FROM MEMBERS WHERE ID = ?";
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		
+		int result = pstmt.executeUpdate();
+		System.out.println("result : " + result);
+		
+		CloseHelper.close(pstmt);
+		CloseHelper.close(conn);
+		
+	}
+	
+	public boolean comfirmPwd(String id, String pwd) throws Exception{
+		String sql = "SELECT PASSWD FROM MEMBERS WHERE ID=?";
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		ResultSet rs = pstmt.executeQuery();
+		String dbpwd = null;
+		if (rs.next()) {
+			dbpwd = rs.getString("passwd"); //DB에 있는 필드 passwd 
+		}
+		return pwd.equals(dbpwd);
+
+				}
+	
+
 }
-
-
 
 
 

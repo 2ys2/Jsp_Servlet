@@ -1,3 +1,5 @@
+<%@page import="edu.kosa.members.MemberVO"%>
+<%@page import="edu.kosa.members.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../view/color.jsp" %>
@@ -23,6 +25,14 @@
 //-->
 </script>
 </head>
+<%
+	//사용자의 id값은 세션속성값으로부터 얻어옴
+	String id = (String)session.getAttribute("memID");
+	MemberDAO dao = MemberDAO.getInstance();
+	MemberVO vo  = dao.getMember(id);
+	
+	try{
+%>
 <body>
 <form name="myform" action="deletePro.jsp" 
 				method="post" onSubmit="return checkIt()">
@@ -51,4 +61,5 @@
 </table>
 </form>
 </body>
+ <% }catch(Exception e) { e.printStackTrace();  } %>
 </html>

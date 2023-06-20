@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../view/mystyle.css" rel="stylesheet" type="text/css">
 <title>modify.jsp  회원 정보 수정 및 탈퇴</title>
 </head>
 <body>

@@ -79,7 +79,7 @@
 		<tr>
 			<td width="200"  > 사용자 이름</td>
 			<td width="400" >
-			<input type="text" name="name" size="15" maxlength="20" value="<%=vo.getName() %>">
+			<input type="text" readonly="readonly" name="name" size="15" maxlength="20" value="<%=vo.getName() %>">
 			</td>
 		</tr>
 		
@@ -103,9 +103,9 @@
 			<td width="200"  >Blog </td>
 			<td width="400" >
 			<% if(vo.getBlog() == null ) { %>
-			<input type="text" name="email" size="60" maxlength="50" >
+			<input type="text" name="blog" size="60" maxlength="50" >
 			<% }else { %>
-			<input type="text" name="email" size="60" maxlength="50" value="<%=vo.getBlog() %>">
+			<input type="text" name="blog" size="60" maxlength="50" value="<%=vo.getBlog() %>">
 			<% } %>
 			</td>
 		</tr>
@@ -122,6 +122,7 @@
 </body>
  <% }catch(Exception e) { e.printStackTrace();  } %>
 </html>
+
 
 
 

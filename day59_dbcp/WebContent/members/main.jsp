@@ -71,7 +71,8 @@ function focusIt()
             방문하셨습니다.
              <form  method="post" action="logout.jsp">  
              <input type="submit"  value="로그아웃">
-             <input type="button" value="회원정보변경" onclick="javascript:window.location='modify.jsp'">
+             <input type="button" value="회원정보변경" onclick="javascript:window.location='modifyForm.jsp'">
+             <input type="button" value="회원탈퇴" onclick="javascript:window.location='deleteForm.jsp'">
              <input type="button" value="회원리스트" onclick="javascript:window.location='memberList.jsp'">
              </form>
          </td>
