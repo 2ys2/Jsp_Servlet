@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메모</title>
+</head>
+<body>
+<form action="./memo" method="post">
+    <h1 align="center">MEMO</h1>
+    <table border="1" align="center">
+        <body>
+        <tr>
+            <th><label for="id">ID:</label></th>
+            <td><input type="text" name="id" id="id"></td>
+        </tr>
+        <tr>
+            <th><label for="email">EMAIL:</label></th>
+            <td><input type="email" name="email" id="email"></td>
+        </tr>
+        <tr>
+            <th><label for="content">CONTENT:</label></th>
+            <td><textarea name="content" id="content" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="전송"> &nbsp;&nbsp;
+            <!-- <button onclick="javascript:location.href='list'"> 리스트 </button> &nbsp;&nbsp; -->
+            <input type="button" value="목록" onclick="javascript:location.href='memolist'">
+            </td>
+        </tr>
+        </body>
+    </table>
+</form>
+</body>
+</html>

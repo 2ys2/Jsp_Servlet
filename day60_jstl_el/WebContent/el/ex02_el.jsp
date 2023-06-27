@@ -34,7 +34,7 @@ session.setAttribute("message", "DeaBo th2");
 
 
 
-
+2
 	<form action="ex02_el.jsp" method="post">
 
 		<ul>
