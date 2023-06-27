@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable="true">
+	<WatchedREsource>WEB-INF/web.xml</WatchedREsource>
+<Resource name="jdbc/MemoDB"
+			auth="Container"
+			type="javax.sql.DataSource"
+			driverClassName="oracle.jdbc.OracleDriver"
+			url="jdbc:oracle:thin:@localhost:1521:orcl"
+			username="user01"
+			password="oracle"
+			
+			
+			maxWait="-1"
+			maxIdle="20"
+			maxTotal="20"
+			maxActive="20" />
+</Context>
+
+
+
+<!-- <Context reloadable="true">
+	<WatchedREsource>WEB-INF/web.xml</WatchedREsource>
+	<Resource name="jdbc/BoardDB"
+	auth="Container"
+		type="javax.sql.DataSource"
+		username="user01"
+		password="oracle"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:orcl" />
+</Context> -->
