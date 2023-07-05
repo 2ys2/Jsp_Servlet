@@ -30,7 +30,7 @@
 		<div style="padding-top: 30px; text-align: cetner">
 			<table width="80%" border="1" cellspacing="0" align="center">
 				<tr>
-					<td colspan="5">
+					<td colspan="5">      
 						<!--  
 							form 태그 action 전송 주소(목적지) >> submit()
 							>> form name="list" ... action 없다면.. 

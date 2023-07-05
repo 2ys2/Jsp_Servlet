@@ -112,7 +112,7 @@ public class SearchAPI extends HttpServlet {
     			try (BufferedReader lineReader = new BufferedReader(streamReader)) {
     				StringBuilder responseBody = new StringBuilder();
 
-
+D
     				String line;
     				while ((line = lineReader.readLine()) != null) {
     					responseBody.append(line);
